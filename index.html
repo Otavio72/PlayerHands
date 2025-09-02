@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Player com Gestos - MediaPipe Hands</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #fff;
+      position: relative;
+    }
+
+    #meuVideo {
+      width: 800px;
+      height: 550px;
+      z-index: 1;
+    }
+
+    #output_canvas {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 200px;
+      height: 150px;
+      border: 2px solid #444;
+      border-radius: 10px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <video id="input_video" style="display:none;"></video>
+
+  <video id="meuVideo" controls>
+    <source src="videoplayback.mp4" type="video/mp4">
+    Seu navegador não suporta o elemento de vídeo.
+  </video>
+
+  <canvas id="output_canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+  <script>
+    const videoElement = document.getElementById('input_video');
+    const canvasElement = document.getElementById('output_canvas');
+    const canvasCtx = canvasElement.getContext('2d');
+    const meuVideo = document.getElementById('meuVideo');
+    
+    let podeClicar = true;
+
+    const hands = new Hands({
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+    });
+
+    hands.setOptions({
+      maxNumHands: 1,
+      modelComplexity: 1,
+      minDetectionConfidence: 0.7,
+      minTrackingConfidence: 0.5
+    });
+
+    hands.onResults(onResults);
+
+    function onResults(results) {
+      canvasCtx.save();
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+
+      if (results.multiHandLandmarks) {
+        for (const landmarks of results.multiHandLandmarks) {
+          drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS, {color: '#0f0', lineWidth: 3});
+          drawLandmarks(canvasCtx, landmarks, {color: '#f00', lineWidth: 2});
+
+          // ---- dedos principais ----
+          const indicadorEstendido = landmarks[8].y < landmarks[5].y;
+          const medioEstendido    = landmarks[12].y < landmarks[9].y;
+          const anelarEstendido   = landmarks[16].y < landmarks[13].y;
+          const minimoEstendido   = landmarks[20].y < landmarks[17].y;
+          const polegarEstendido  = landmarks[4].y < landmarks[2].y; // base do polegar
+
+          const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, minimoEstendido].filter(d => d).length;
+
+          // ---- apenas indicador estendido ----
+          const apenasIndicador = dedosEstendidos === 1;
+          const threshold = 0.05;
+          const xIndicador = landmarks[8].x;
+          const xPolegar = landmarks[4].x;
+          const yIndicador = landmarks[8].y;
+          const yPolegar = landmarks[4].y;
+            
+            const apenasPinça = dedosEstendidos <=2 && yPolegar > yIndicador;
+
+             // entre 0 e 1
+
+            if (apenasPinça) {
+                // Mapeia a distância para volume de 0 a 1
+                
+                const distancia = Math.abs(landmarks[8].y - landmarks[4].y);
+                const volume = Math.min(Math.max(distancia * 8, 0), 1);
+                meuVideo.volume = volume;
+                console.log("Volume:", volume.toFixed(2));
+                setTimeout(() => { podeClicar = true; }, 1000);
+
+                if (volume <= 0.15) {
+                    meuVideo.muted = true;
+                } else {
+                  meuVideo.muted = false;
+                }
+            } 
+
+
+            if (apenasIndicador && xIndicador < 0.5) { // indicador pra direita da tela
+                meuVideo.currentTime -= 5;
+                console.log("👉 Avançar 5s");
+                setTimeout(() => { podeClicar = true; }, 1000);
+            } else if (apenasIndicador && xIndicador > 0.5) { // indicador pra esquerda da tela
+                meuVideo.currentTime += 5;
+                console.log("👉 Avançar 5s");
+                setTimeout(() => { podeClicar = true; }, 1000);
+            }
+          else if (dedosEstendidos >= 3 && podeClicar) {
+            meuVideo.play();
+            console.log("🖐️ Play");
+            podeClicar = false;
+            setTimeout(() => { podeClicar = true; }, 1000);
+          } 
+          else if (dedosEstendidos === 0 && podeClicar) {
+            meuVideo.pause();
+            console.log("👊 Pause");
+            podeClicar = false;
+            setTimeout(() => { podeClicar = true; }, 1000);
+          }
+        }
+      }
+      canvasCtx.restore();
+    }
+
+    const camera = new Camera(videoElement, {
+      onFrame: async () => {
+        await hands.send({image: videoElement});
+      },
+      width: 640,
+      height: 480
+    });
+    camera.start();
+  </script>
+</body>
+</html>
