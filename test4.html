@@ -133,22 +133,26 @@ const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, mi
             }
 
             else if (maoHorizontalDireita && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio > xIndicador) {
+              meuVideo.currentTime += 5;
               console.log("APONTAR DIREITA 👉");
               setTimeout(() => { podeClicar = true; }, 2000);
             }
 
             else if (maoHorizontalEsquerda && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio < xIndicador) {
+              meuVideo.currentTime -= 5;
               console.log("APONTAR ESQUERDA 👈");
               setTimeout(() => { podeClicar = true; }, 2000);
             }
             
             else if (dedosEstendidos >=4 && maoVertical) {
-            console.log("ABERTA 🖐️");
+              meuVideo.play();
+              console.log("ABERTA 🖐️");
             setTimeout(() => { podeClicar = true; }, 2000);
           }
 
             else if (dedosEstendidos === 0 && maoVertical) {
-            console.log("FECHADA 👊");
+              meuVideo.pause();
+              console.log("FECHADA 👊");
             setTimeout(() => { podeClicar = true; }, 2000);
           }
 
