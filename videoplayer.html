@@ -5,7 +5,7 @@
   <title>Player com Gestos - MediaPipe Hands</title>
 
           <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -14,7 +14,10 @@
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="/css/styles.css" rel="stylesheet" />
+
+
+
   <style>
 
 .body{
@@ -74,7 +77,7 @@
 
           <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="ps-0">
-                <a class="navbar-brand" href="/"><img src="assets\PlayerHandsLogo.png" alt="" width="150px" height="110px"></a>
+                <a class="navbar-brand" href="/"><img src="/assets/PlayerHandsLogo.png" alt="" width="150px" height="110px"></a>
             </div>
               
             <div class="container">
@@ -92,7 +95,7 @@
       <video id="input_video" style="display:none;"></video>
 
       <video id="meuVideo" controls>
-        <source src="videoplayback.mp4" type="video/mp4">
+        <source id="videoSource" src="" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.
       </video>
 
@@ -103,7 +106,15 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
 
+
   <script>
+
+    // Pega o último pedaço da URL -> o filename
+    const filename = window.location.pathname.split('/').pop();
+    document.getElementById('videoSource').src = `/${filename}`;
+    document.getElementById('meuVideo').load();
+
+
     const videoElement = document.getElementById('input_video');
     const canvasElement = document.getElementById('output_canvas');
     const canvasCtx = canvasElement.getContext('2d');
@@ -232,7 +243,7 @@ const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, mi
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="/js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
