@@ -84,7 +84,7 @@
   list-style: none;
   font-family: Merriweather Sans, sans-serif;
   color: white;
-  margin-left: 30px;
+  margin-left: -115px;
 
 }
 
@@ -92,6 +92,14 @@
   display: flex;
   justify-content: center;
   margin-left: 15%;
+}
+
+.emojiGif{
+  width: 30px;
+  height: 30px;
+  margin-right: 2px;
+  max-width: 30px;
+  max-height: 30px;
 }
 
   </style>
@@ -107,11 +115,11 @@
               
             <div class="container">
               <ul class="cabecalho">
-                  <li><span>GESTO1 🖐️</span></li>
-                  <li><span>GESTO2 👊</span></li>
-                  <li><span>GESTO3 🫲</span></li>
-                  <li><span>GESTO4 🫱</span></li>
-                  <li><span>GESTO5 🤏</span></li>
+                  <li><span><img class="emojiGif" src="\assets\img\gifs\1.gif" alt="">PLAY</span></li>
+                  <li><span><img class="emojiGif" src="\assets\img\gifs\2.gif" alt="">PAUSE</span></li>
+                  <li><span><img class="emojiGif" style="transform: rotate(-90deg);" src="\assets\img\gifs\3.gif" alt="">AVANÇAR</span></li>
+                  <li><span><img class="emojiGif" style="transform: rotate(90deg) scaleX(-1);" src="\assets\img\gifs\3.gif" alt="">VOLTAR</span></li>
+                  <li><span><img class="emojiGif" style="transform: rotate(90deg)" src="\assets\img\gifs\4.gif" alt="">Volume (aproximar: diminuir // afastar: aumentar)</span></li>
                 </ul>
               </div>
           </nav>
@@ -127,7 +135,7 @@
                         </video>
 
                           <canvas id="output_canvas"></canvas>
-                          <div id="gestoSelecionado">dwdwdw</div>
+                          <div id="gestoSelecionado">Nenhum selecionado</div>
 
                           
                     </div>
@@ -252,7 +260,7 @@ const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, mi
             else if (maoHorizontalEsquerda && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio < xIndicador) {
               meuVideo.currentTime -= 5;
               console.log("APONTAR ESQUERDA 👈");
-              mostrarGesto('<i class="fa-solid fa-hand-point-left" style="color: #FFD43B;"></i> <br> RETROCEDER');
+              mostrarGesto('<i class="fa-solid fa-hand-point-left" style="color: #FFD43B;"></i> <br>VOLTAR');
               setTimeout(() => { podeClicar = true; }, 2000);
             }
             
