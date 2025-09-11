@@ -8,6 +8,8 @@
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
@@ -49,6 +51,25 @@
   border: 2px solid #444;
   border-radius: 10px;
   z-index: 10;          /* sempre na frente */
+}
+
+#gestoSelecionado {
+  position: absolute;
+  top: 260px;            /* distância do topo da tela grande */
+  right: 25px;          /* distância da direita */
+  width: 200px;         /* tamanho da mini-tela */
+  height: 100px;
+  border: 2px solid #444;
+  border-radius: 10px;   
+  z-index: 10;      /* sempre na frente */
+  background-color: #444;
+  color: #f06c00;
+  font-size: xx-large;
+  font-family: Merriweather Sans;
+  white-space: pre-line;  
+  text-align: center;
+  text-emphasis: bold;
+
 }
 
 .navbar{
@@ -96,17 +117,22 @@
           </nav>
 
           <header class="masthead">
-          
+                  
                     <div class="video-wrapper">
-                      <video id="input_video" style="display:none;"></video>
+                        <video id="input_video" style="display:none;"></video>
 
-                      <video id="meuVideo" controls>
-                        <source id="videoSource" src="" type="video/mp4">
-                        Seu navegador não suporta o elemento de vídeo.
-                      </video>
+                        <video id="meuVideo" controls>
+                          <source id="videoSource" src="" type="video/mp4">
+                          Seu navegador não suporta o elemento de vídeo.
+                        </video>
 
-                        <canvas id="output_canvas"></canvas>
-          </div>
+                          <canvas id="output_canvas"></canvas>
+                          <div id="gestoSelecionado">dwdwdw</div>
+
+                          
+                    </div>
+                    
+          
             
         </header>
 
@@ -114,6 +140,15 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
 
+
+  <script>
+     function mostrarGesto(gesto) {
+        const gestoDiv = document.getElementById('gestoSelecionado');
+        gestoDiv.innerHTML = gesto;
+        gestoDiv.style.opacity = 1; // Torna visível
+    
+      }
+  </script>
 
   <script>
 
@@ -203,30 +238,35 @@ const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, mi
                 const volume = Math.min(Math.max(distancia * 6, 0), 1);
                 meuVideo.volume = volume;
                 console.log("🔈🤏 Volume:", volume.toFixed(2));
+                mostrarGesto(' 🔈<i class="fa-solid fa-hand-lizard" style="color: #FFD43B;"></i> Volume:' + volume.toFixed(2));
                 setTimeout(() => { podeClicar = true; }, 2000);
             }
 
             else if (maoHorizontalDireita && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio > xIndicador) {
               meuVideo.currentTime += 5;
               console.log("APONTAR DIREITA 👉");
+              mostrarGesto('<i class="fa-solid fa-hand-point-right" style="color: #FFD43B;"></i> <br> AVANÇAR');
               setTimeout(() => { podeClicar = true; }, 2000);
             }
 
             else if (maoHorizontalEsquerda && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio < xIndicador) {
               meuVideo.currentTime -= 5;
               console.log("APONTAR ESQUERDA 👈");
+              mostrarGesto('<i class="fa-solid fa-hand-point-left" style="color: #FFD43B;"></i> <br> RETROCEDER');
               setTimeout(() => { podeClicar = true; }, 2000);
             }
             
             else if (dedosEstendidos >=4 && maoVertical) {
               meuVideo.play();
               console.log("ABERTA 🖐️");
+              mostrarGesto('<i class="fa-solid fa-hand" style="color: #FFD43B;"></i> <br> PLAY ');
             setTimeout(() => { podeClicar = true; }, 2000);
           }
 
             else if (dedosEstendidos === 0 && maoVertical) {
               meuVideo.pause();
               console.log("FECHADA 👊");
+              mostrarGesto('<i class="fa-solid fa-hand-fist" style="color: #FFD43B;"></i> <br> PAUSE ');
             setTimeout(() => { podeClicar = true; }, 2000);
           }
 
