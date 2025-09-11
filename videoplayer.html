@@ -18,15 +18,13 @@
 
 
 
+
+
   <style>
 
-.body{
-      background: #111;
-      display: flex;
-      justify-content: center;
-}
-
 .video-wrapper {
+  display: flex;
+  justify-content: center;
   position: relative;   /* referência para os absolutos dentro */
   width: 100%;
   max-width: 1500px;   /* tamanho máximo do vídeo grande */
@@ -34,17 +32,20 @@
 }
 
 #meuVideo {
-  width: 1351px;
-  height: 550px;         /* mantém proporção */
-  display: block;
+  width: 65%;
+  height: auto;         /* mantém proporção */
+  display: flex;
+  margin-top: 5%;
+  border: 2px solid #444;
+  border-radius: 10px;
 }
 
 #output_canvas {
   position: absolute;
-  top: 10px;            /* distância do topo da tela grande */
-  right: 10px;          /* distância da direita */
+  top: 65px;            /* distância do topo da tela grande */
+  right: 25px;          /* distância da direita */
   width: 200px;         /* tamanho da mini-tela */
-  height: 150px;
+  height: 170px;
   border: 2px solid #444;
   border-radius: 10px;
   z-index: 10;          /* sempre na frente */
@@ -56,12 +57,13 @@
 
 .cabecalho{
   display: flex;
-  gap: 20px;
+  justify-content: center; /* Centraliza os itens horizontalmente */
+  gap: 20px; /* Espaçamento entre os itens */
   padding: 0;
   list-style: none;
-  margin: 0;
-  font-family: marriweather, sans-serif;
+  font-family: Merriweather Sans, sans-serif;
   color: white;
+  margin-left: 30px;
 
 }
 
@@ -73,34 +75,40 @@
 
   </style>
 </head>
-<body>
+<body style="overflow-y: hidden;">
 
-          <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            
+            
             <div class="ps-0">
                 <a class="navbar-brand" href="/"><img src="/assets/PlayerHandsLogo.png" alt="" width="150px" height="110px"></a>
             </div>
               
             <div class="container">
               <ul class="cabecalho">
-                  <li>GESTO1 🖐️</li>
-                  <li>GESTO2 👊</li>
-                  <li>GESTO3 🫲</li>
-                  <li>GESTO4 🫱</li>
-                  <li>GESTO5 🤏</li>
+                  <li><span>GESTO1 🖐️</span></li>
+                  <li><span>GESTO2 👊</span></li>
+                  <li><span>GESTO3 🫲</span></li>
+                  <li><span>GESTO4 🫱</span></li>
+                  <li><span>GESTO5 🤏</span></li>
                 </ul>
               </div>
-        </nav>
+          </nav>
 
-  <div class="video-wrapper">
-      <video id="input_video" style="display:none;"></video>
+          <header class="masthead">
+          
+                    <div class="video-wrapper">
+                      <video id="input_video" style="display:none;"></video>
 
-      <video id="meuVideo" controls>
-        <source id="videoSource" src="" type="video/mp4">
-        Seu navegador não suporta o elemento de vídeo.
-      </video>
+                      <video id="meuVideo" controls>
+                        <source id="videoSource" src="" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                      </video>
 
-      <canvas id="output_canvas"></canvas>
-  </div>
+                        <canvas id="output_canvas"></canvas>
+          </div>
+            
+        </header>
 
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
@@ -243,7 +251,7 @@ const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, mi
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="/js/scripts.js"></script>
+        
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
