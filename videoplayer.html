@@ -37,40 +37,76 @@
   width: 65%;
   height: auto;         /* mantém proporção */
   display: flex;
-  margin-top: 5%;
-  border: 2px solid #444;
+  margin-top: 4%;
+  border: 2px solid #f06c00;
   border-radius: 10px;
 }
 
 #output_canvas {
   position: absolute;
-  top: 65px;            /* distância do topo da tela grande */
-  right: 25px;          /* distância da direita */
-  width: 200px;         /* tamanho da mini-tela */
-  height: 170px;
-  border: 2px solid #444;
+  top: 10%;            /* distância do topo da tela grande */
+  right: 2%;          /* distância da direita */
+  width: 14%;         /* tamanho da mini-tela */
+  height: 35%;
+  border: 2px solid #f06c00;
   border-radius: 10px;
   z-index: 10;          /* sempre na frente */
 }
 
 #gestoSelecionado {
   position: absolute;
-  top: 260px;            /* distância do topo da tela grande */
-  right: 25px;          /* distância da direita */
-  width: 200px;         /* tamanho da mini-tela */
-  height: 100px;
-  border: 2px solid #444;
+  top: 48%;            /* distância do topo da tela grande */
+  right: 2%;          /* distância da direita */
+  width: 14%;         /* tamanho da mini-tela */
+  height: 20%;
+  border: 2px solid #f06c00;
   border-radius: 10px;   
   z-index: 10;      /* sempre na frente */
   background-color: #444;
   color: #f06c00;
-  font-size: xx-large;
+  font-size: 100%;
   font-family: Merriweather Sans;
   white-space: pre-line;  
   text-align: center;
   text-emphasis: bold;
 
 }
+
+.gestos{
+  position: absolute;
+  width: 15%;          /* um pouco mais largo pra caber o texto */
+  height: auto;
+  top: 15%;
+  left: 1%;          /* distância da esquerda */
+  border: 2px solid #f06c00;
+  border-radius: 10px;   
+  z-index: 10;
+  background-color: #444;
+  color: #f06c00;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 100%;
+  list-style: none;
+  padding: 1%;
+}
+
+.gestos ul {
+  padding: 0;
+  margin: 0;
+}
+
+.gestos li {
+  display: flex;            /* alinha GIF e texto na mesma linha */
+  align-items: center;      /* verticalmente centralizado */
+  gap: 8px;                 /* espaço entre GIF e texto */
+  margin: 5px 0;            /* espaço entre os itens */
+}
+
+.gestos li.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;       /* centraliza o título */
+}
+
 
 .navbar{
   background: #111;
@@ -106,28 +142,28 @@
 </head>
 <body style="overflow-y: hidden;">
 
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            
-            
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="ps-0">
-                <a class="navbar-brand" href="/"><img src="/assets/PlayerHandsLogo.png" alt="" width="150px" height="110px"></a>
-            </div>
-              
-            <div class="container">
-              <ul class="cabecalho">
-                  <li><span><img class="emojiGif" src="\assets\img\gifs\1.gif" alt="">PLAY</span></li>
-                  <li><span><img class="emojiGif" src="\assets\img\gifs\2.gif" alt="">PAUSE</span></li>
-                  <li><span><img class="emojiGif" style="transform: rotate(-90deg);" src="\assets\img\gifs\3.gif" alt="">AVANÇAR</span></li>
-                  <li><span><img class="emojiGif" style="transform: rotate(90deg) scaleX(-1);" src="\assets\img\gifs\3.gif" alt="">VOLTAR</span></li>
-                  <li><span><img class="emojiGif" style="transform: rotate(90deg)" src="\assets\img\gifs\4.gif" alt="">Volume (aproximar: diminuir // afastar: aumentar)</span></li>
-                </ul>
-              </div>
-          </nav>
+                <a class="navbar-brand" href="/"><img src="/assets\PlayerHandsLogo.png" alt="" width="30%" height="auto"></a>
 
-          <header class="masthead">
+            </div>
+        </nav>
+
+          <header class="masthead" id="wallpaper2">
                   
                     <div class="video-wrapper">
+                        
                         <video id="input_video" style="display:none;"></video>
+<div class="gestos">              
+  <ul>
+    <li class="title">Gestos</li>
+    <li><img class="emojiGif" src="\assets\img\gifs\1.gif" alt="">PLAY</li>
+    <li><img class="emojiGif" src="\assets\img\gifs\2.gif" alt="">PAUSE</li>
+    <li><img class="emojiGif" style="transform: rotate(-90deg);" src="\assets\img\gifs\3.gif" alt="">AVANÇAR</li>
+    <li><img class="emojiGif" style="transform: rotate(90deg) scaleX(-1);" src="\assets\img\gifs\3.gif" alt="">VOLTAR</li>
+    <li><img class="emojiGif" style="transform: rotate(90deg)" src="\assets\img\gifs\4.gif" alt="">VOLUME (aproximar: diminuir // afastar: aumentar)</li>
+  </ul>   
+</div>
 
                         <video id="meuVideo" controls>
                           <source id="videoSource" src="" type="video/mp4">
