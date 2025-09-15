@@ -11013,3 +11013,125 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;   /* referência para os absolutos dentro */
+  width: 100%;
+  max-width: 1500px;   /* tamanho máximo do vídeo grande */
+  margin: 0 auto;   
+  margin-top: 0;    /* centraliza horizontalmente */
+}
+
+#meuVideo {
+  width: 65%;
+  height: auto;         /* mantém proporção */
+  display: flex;
+  margin-top: 4%;
+  border: 2px solid #f06c00;
+  border-radius: 10px;
+}
+
+#output_canvas {
+  position: absolute;
+  top: 10%;            /* distância do topo da tela grande */
+  right: 2%;          /* distância da direita */
+  width: 14%;         /* tamanho da mini-tela */
+  height: 35%;
+  border: 2px solid #f06c00;
+  border-radius: 10px;
+  z-index: 10;          /* sempre na frente */
+}
+
+#gestoSelecionado {
+  position: absolute;
+  top: 48%;            /* distância do topo da tela grande */
+  right: 2%;          /* distância da direita */
+  width: 14%;         /* tamanho da mini-tela */
+  height: 20%;
+  border: 2px solid #f06c00;
+  border-radius: 10px;   
+  z-index: 10;      /* sempre na frente */
+  background-color: #444;
+  color: #f06c00;
+  font-size: 100%;
+  font-family: Merriweather Sans;
+  white-space: pre-line;  
+  text-align: center;
+  text-emphasis: bold;
+
+}
+
+.gestos{
+  position: absolute;
+  width: 15%;          /* um pouco mais largo pra caber o texto */
+  height: auto;
+  top: 15%;
+  left: 1%;          /* distância da esquerda */
+  border: 2px solid #f06c00;
+  border-radius: 10px;   
+  z-index: 10;
+  background-color: #444;
+  color: #f06c00;
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 100%;
+  list-style: none;
+  padding: 1%;
+}
+
+.gestos ul {
+  padding: 0;
+  margin: 0;
+}
+
+.gestos li {
+  display: flex;            /* alinha GIF e texto na mesma linha */
+  align-items: center;      /* verticalmente centralizado */
+  gap: 8px;                 /* espaço entre GIF e texto */
+  margin: 5px 0;            /* espaço entre os itens */
+}
+
+.gestos li.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;       /* centraliza o título */
+}
+
+.navbar{
+  background: #111;
+}
+
+.emojiGif{
+  width: 30px;
+  height: 30px;
+  margin-right: 2px;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+@media (max-width: 1000px) {
+  .gestos{
+    max-height: 75%;
+    left: 5%;
+    font-size: x-small;
+  }
+
+  #meuVideo {
+    width: 55%;
+    height: auto;
+  }
+
+  #output_canvas {
+    width: 19%;
+    height: auto;
+  }
+
+  #gestoSelecionado {
+    width: 19%;
+    height: 20%;
+    font-size: small;
+    top: 44%;
+
+}
+}

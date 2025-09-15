@@ -17,6 +17,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -171,21 +172,9 @@
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    
-        <script>
-            const inputButton = document.getElementById('inputButton');
 
-            const video = document.getElementById('video');
-            const form = document.getElementById('form');
-
-            inputButton.addEventListener('click', () => video.click());
-
-            video.addEventListener('change', () => {
-                if(video.files.length > 0) {
-                    form.submit();
-                }
-            });
-        </script>
+        <script src="/js/inputAuto.js"></script>
+        
+        
     </body>
 </html>
