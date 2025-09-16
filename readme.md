@@ -18,9 +18,17 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 ## 💻 Layout da aplicação
 
 ### Página inicial
-![Página Inicial](assets/PiadasInstantaneas.png)
+![Página Inicial](/assets/1.png)
 
-*(Dica: adicionar um GIF mostrando a piada mudando em tempo real deixa mais dinâmico.)*
+### Upload de arquivos
+![Upload de arquivos](/assets/2.png)
+
+### Galeria de imagens
+![imagens](/assets/3.png)
+
+### Player
+![Player](assets/videoPlayerHands.mp4)
+
 
 ---
 
