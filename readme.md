@@ -27,7 +27,7 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 ![imagens](/assets/3.png)
 
 ### Player
-![Player](assets/videoPlayerHands.mp4)
+![Player](assets/GIF.gif)
 
 
 ---
