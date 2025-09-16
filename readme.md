@@ -59,11 +59,6 @@ cd PlayerHands
 npm install
 node index.js
 ```
-## 📦 Com Docker
-```bash
-docker build -t PlayerHands
-docker run -p 3000:3000 piadas-instantaneas
-```
 Depois acesse: http://localhost:5000
 
 ## 💻 Online
