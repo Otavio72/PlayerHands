@@ -37,7 +37,7 @@
            
           // ---- dedos principais ----
           const margem = 0.01;
-          const margemVolume = 0.015;
+          const margemVolume = 0.02;
 
 const indicadorEstendido = landmarks[8].y < landmarks[5].y + margem && // Ponta do dedo acima da base
                            landmarks[7].y < landmarks[5].y + margem && // Segunda dobra acima da base
@@ -85,35 +85,35 @@ const dedosEstendidos = [indicadorEstendido, medioEstendido, anelarEstendido, mi
                 meuVideo.volume = volume;
                 console.log("🔈🤏 Volume:", volume.toFixed(2));
                 mostrarGesto(' 🔈<i class="fa-solid fa-hand-lizard" style="color: #FFD43B;"></i> Volume:' + volume.toFixed(2));
-                setTimeout(() => { podeClicar = true; }, 2000);
+                setTimeout(() => { podeClicar = true; }, 1000);
             }
 
             else if (maoHorizontalDireita && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio > xIndicador) {
               meuVideo.currentTime += 5;
               console.log("APONTAR DIREITA 👉");
               mostrarGesto('<i class="fa-solid fa-hand-point-right" style="color: #FFD43B;"></i> <br> AVANÇAR');
-              setTimeout(() => { podeClicar = true; }, 2000);
+              setTimeout(() => { podeClicar = true; }, 1000);
             }
 
             else if (maoHorizontalEsquerda && indicadorEstendido && medioEstendido && yIndicador < ymedio && xmedio < xIndicador) {
               meuVideo.currentTime -= 5;
               console.log("APONTAR ESQUERDA 👈");
               mostrarGesto('<i class="fa-solid fa-hand-point-left" style="color: #FFD43B;"></i> <br>VOLTAR');
-              setTimeout(() => { podeClicar = true; }, 2000);
+              setTimeout(() => { podeClicar = true; }, 1000);
             }
             
             else if (dedosEstendidos >=4 && maoVertical) {
               meuVideo.play();
               console.log("ABERTA 🖐️");
               mostrarGesto('<i class="fa-solid fa-hand" style="color: #FFD43B;"></i> <br> PLAY ');
-            setTimeout(() => { podeClicar = true; }, 2000);
+            setTimeout(() => { podeClicar = true; }, 1000);
           }
 
             else if (dedosEstendidos === 0 && maoVertical) {
               meuVideo.pause();
               console.log("FECHADA 👊");
               mostrarGesto('<i class="fa-solid fa-hand-fist" style="color: #FFD43B;"></i> <br> PAUSE ');
-            setTimeout(() => { podeClicar = true; }, 2000);
+            setTimeout(() => { podeClicar = true; }, 1000);
           }
 
       }
