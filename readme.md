@@ -2,7 +2,7 @@
 
 Um Player de videos operado por gestos com um site responsivo e sistema de envio de videos
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Otavio72/Piadas-Instantaneas/blob/main/LICENSE)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Otavio72/PlayerHands/blob/main/LICENSE)  
 
 ---
 
