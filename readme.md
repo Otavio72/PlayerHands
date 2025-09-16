@@ -41,6 +41,8 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 ### 🎨 Front end
 - HTML  
 - CSS
+- Bootstrap 5
+- MediaPipe
 
 ### 📦 Deploy
 - Docker  
