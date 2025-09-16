@@ -57,14 +57,14 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 git clone https://github.com/Otavio72/PlayerHands.git
 cd PlayerHands
 npm install
-npm start
+node index.js
 ```
 ## 📦 Com Docker
 ```bash
 docker build -t PlayerHands
 docker run -p 3000:3000 piadas-instantaneas
 ```
-Depois acesse: http://localhost:3000
+Depois acesse: http://localhost:5000
 
 ## 💻 Online
 [Piadas Instantâneas](https://piadas-instantaneas.onrender.com)
