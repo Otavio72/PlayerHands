@@ -2,7 +2,7 @@
 
 Um Player de videos operado por gestos com um site responsivo e sistema de envio de videos
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Otavio72/Piadas-Instantaneas/blob/main/LICENSE)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Otavio72/PlayerHands/blob/main/LICENSE)  
 
 ---
 
@@ -18,9 +18,17 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 ## 💻 Layout da aplicação
 
 ### Página inicial
-![Página Inicial](assets/PiadasInstantaneas.png)
+![Página Inicial](/assets/1.png)
 
-*(Dica: adicionar um GIF mostrando a piada mudando em tempo real deixa mais dinâmico.)*
+### Upload de arquivos
+![Upload de arquivos](/assets/2.png)
+
+### Galeria de imagens
+![imagens](/assets/3.png)
+
+### Player
+![Player](assets/GIF.gif)
+
 
 ---
 
@@ -33,6 +41,8 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 ### 🎨 Front end
 - HTML  
 - CSS
+- Bootstrap 5
+- MediaPipe
 
 ### 📦 Deploy
 - Docker  
@@ -44,14 +54,14 @@ Um Player de videos operado por gestos com um site responsivo e sistema de envio
 
 ### Localmente
 ```bash
-git clone https://github.com/Otavio72/Piadas-Instantaneas.git
-cd Piadas-Instantaneas
+git clone https://github.com/Otavio72/PlayerHands.git
+cd PlayerHands
 npm install
 npm start
 ```
 ## 📦 Com Docker
 ```bash
-docker build -t piadas-instantaneas
+docker build -t PlayerHands
 docker run -p 3000:3000 piadas-instantaneas
 ```
 Depois acesse: http://localhost:3000
