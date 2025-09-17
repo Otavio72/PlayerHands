@@ -1,64 +1,72 @@
-# 🖖 PlayerHands
+# 🖖 PlayerHands  
 
-Um Player de videos operado por gestos com um site responsivo e sistema de envio de videos
+Um **player de vídeos controlado por gestos**, com **layout responsivo**, **upload de arquivos** e **deploy pronto** via Docker + Render.  
+Simples, moderno e intuitivo — inspirado em TVs futuristas.  
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Otavio72/PlayerHands/blob/main/LICENSE)  
 
 ---
 
 ## 🚀 Funcionalidades
-  
-- 📱 **Layout responsivo:** Funciona tanto em desktop quanto em mobile. 
-- 💻 **Controle por Gestos (MediaPipe):** O player e controlado por gestos como PLAY 🖐️ e PAUSE 👊  
-- 📦 **Deploy pronto:** Docker + Render para rodar sem complicação.  
 
-
----
-
-## 💻 Layout da aplicação
-
-### Página inicial
-![Página Inicial](/assets/1.png)
-
-### Upload de arquivos
-![Upload de arquivos](/assets/2.png)
-
-### Galeria de imagens
-![imagens](/assets/3.png)
-
-### Player
-![Player](assets/GIF.gif)
-
+- 📱 **Layout responsivo** → funciona perfeitamente em desktop e mobile.  
+- 🖐️ **Controle por gestos (MediaPipe)** → gestos como *play*, *pause* e outros para navegação intuitiva.  
+- ☁️ **Upload** → faça upload dos vídeos.  
+- 📦 **Deploy simplificado** → pronto pra rodar com **Docker** e **Render**, sem dor de cabeça.  
 
 ---
 
-## 🛠 Tecnologias utilizadas
+## 🖼️ Layout da aplicação  
 
-### 🔙 Back end
+### Página inicial  
+![Página Inicial](/assets/1.png)  
+
+### Upload de arquivos  
+![Upload de arquivos](/assets/2.png)  
+
+### Galeria  
+![imagens](/assets/3.png)  
+
+### Player em ação  
+![Player](assets/GIF.gif)  
+
+---
+
+## 🛠️ Tecnologias utilizadas  
+
+### 🔙 Back end  
 - Node.js  
-- Express
+- Express  
 
-### 🎨 Front end
+### 🎨 Front end  
 - HTML  
-- CSS
-- Bootstrap 5
-- MediaPipe
+- CSS  
+- Bootstrap 5  
+- MediaPipe  
 
-### 📦 Deploy
+### 📦 Deploy  
 - Docker  
-- Render
+- Render  
 
 ---
 
-## ⚙️ Como executar o projeto
+## ⚙️ Como executar o projeto  
 
-### Localmente
+### 🔧 Localmente  
 ```bash
+# Clone o repositório
 git clone https://github.com/Otavio72/PlayerHands.git
+
+# Acesse a pasta do projeto
 cd PlayerHands
+
+# Instale as dependências
 npm install
+
+# Inicie o servidor
 node index.js
 ```
+
 Depois acesse: http://localhost:5000
 
 ## 💻 Online
