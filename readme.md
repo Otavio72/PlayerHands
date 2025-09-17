@@ -62,8 +62,8 @@ node index.js
 Depois acesse: http://localhost:5000
 
 ## 💻 Online
-[Piadas Instantâneas](https://piadas-instantaneas.onrender.com)
+[PlayerHands](https://playerhandsdemo.onrender.com)
 
 # Autor
 Otávio Ribeiro
-[🔗LinkedIn](https://www.linkedin.com/in/otávio-ribeiro-57a359197)
+[🔗LinkedIn](https://www.linkedin.com/in/otavio-ribeiro-57a359197)
